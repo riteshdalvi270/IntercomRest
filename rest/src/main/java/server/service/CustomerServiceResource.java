@@ -8,6 +8,8 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Application;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.awt.*;
 import java.util.List;
@@ -19,14 +21,16 @@ import java.util.List;
 public class CustomerServiceResource {
 
     @GET
-    @Path("{coordinates}")
-    @Produces("application/xml")
-    public Response getCustomersWithin100Km(@PathParam("{coordinates}") final String coordinates) {
+    @Path("/latitude/{latitude}/longitude/{longitude}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getCustomersWithin100Km(@PathParam("latitude") final String latitude, @PathParam("longitude") final String longitude) {
 
         final CustomerRelationshipManagement customerRelationshipManagement = CustomerRelationshipManagement.create();
 
         final Dublin dublin = new Dublin();
-        dublin.setCoordinates(getCoordinates(coordinates));
+        final Point point = new Point();
+        point.setLocation(Double.valueOf(latitude),Double.valueOf(longitude));
+        dublin.setCoordinates(point);
         final List<CustomerResponse> customers = customerRelationshipManagement.getCustomers(dublin);
 
         return createResponse(customers);

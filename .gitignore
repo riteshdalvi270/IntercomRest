@@ -1,1 +1,5 @@
 .idea
+rest/.settings
+impl/.settings
+resttest/.settings
+war/.settings
