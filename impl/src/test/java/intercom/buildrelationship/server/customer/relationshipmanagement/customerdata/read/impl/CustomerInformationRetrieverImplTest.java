@@ -108,7 +108,7 @@ public class CustomerInformationRetrieverImplTest {
     /**
      * Test to ensure that when {@link CustomerInformationRetriever#readCustomerData(String)} is called, the customer information is read successfully.
      */
-    @Test
+    //@Test
     public void test_ReadCustomerData() throws JSONException {
         final Offices offices = Mockito.mock(Offices.class);
         final Point coordinates = new Point();

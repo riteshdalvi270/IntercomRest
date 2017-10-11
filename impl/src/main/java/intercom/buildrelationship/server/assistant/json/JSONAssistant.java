@@ -1,7 +1,6 @@
 package intercom.buildrelationship.server.assistant.json;
 
 import intercom.buildrelationship.exception.Verifier;
-import jdk.nashorn.internal.runtime.regexp.joni.exception.InternalException;
 import org.codehaus.jettison.json.JSONObject;
 
 /**

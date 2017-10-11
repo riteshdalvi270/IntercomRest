@@ -14,6 +14,7 @@
         <module>war</module>
         <module>rest</module>
         <module>impl</module>
+        <module>resttest</module>
     </modules>
 
     <dependencyManagement>
