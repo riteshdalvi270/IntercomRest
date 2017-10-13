@@ -9,6 +9,9 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.junit.Test;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 
@@ -28,6 +31,14 @@ public class CustomerResourceTest {
             final HttpResponse response = httpClient.execute(httpGet);
 
             System.out.println(response.getStatusLine().getStatusCode() + response.getStatusLine().getReasonPhrase());
+            
+            final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+            String readline = null;
+            
+            while((readline = bufferedReader.readLine())!=null) {
+            	
+            		System.out.println(readline.toString());
+            }
 
         }catch (final Exception e) {
             e.printStackTrace();
@@ -46,7 +57,7 @@ public class CustomerResourceTest {
     }
 
     private String getServiceURI() {
-        return UriBuilder.fromPath("service/customers/latitude/").path(String.valueOf(34.4)).path("/longitude/").path(String.valueOf(32.2)).build().toString();
+        return UriBuilder.fromPath("service/customers/latitude/").path(String.valueOf(53.3381985)).path("/longitude/").path(String.valueOf(-6.2592576)).build().toString();
     }
 
 }

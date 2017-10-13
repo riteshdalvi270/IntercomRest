@@ -53,9 +53,8 @@ public class CustomerRelationshipManagement {
         dublin.setCoordinates(point);
 
         final CustomerInformationRetriever customerInformationRetriever = CustomerInformationRetrieverImpl.createInstance(dublin);
-        final File directory = new File("./");
 
-        List<CustomerResponse> customerResponses = customerInformationRetriever.readCustomerData(directory.getAbsolutePath() + "/src/main/resources/customer.text");
+        List<CustomerResponse> customerResponses = customerInformationRetriever.readCustomerData("/Users/ritesh/Documents/Ritesh/intercom/impl/src/main/resources/customer.text");
 
         return customerResponses;
     }

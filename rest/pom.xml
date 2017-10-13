@@ -31,6 +31,16 @@
             <artifactId>jersey-core</artifactId>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+    			<groupId>org.glassfish.jersey.media</groupId>
+    			<artifactId>jersey-media-moxy</artifactId>
+    			<scope>compile</scope>
+		</dependency>
+		<dependency>
+    				<groupId>com.google.code.gson</groupId>
+    				<artifactId>gson</artifactId>
+    				<scope>compile</scope>
+		</dependency>
 
         <!-- https://mvnrepository.com/artifact/com.sun.jersey/jersey-servlet -->
         <dependency>

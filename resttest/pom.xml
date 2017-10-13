@@ -36,7 +36,7 @@
             <artifactId>httpclient</artifactId>
             <scope>test</scope>
         </dependency>
-
+		<!-- https://mvnrepository.com/artifact/org.glassfish.jersey.media/jersey-media-moxy -->
 
         <dependency>
             <groupId>junit</groupId>
@@ -79,11 +79,11 @@
                     </container>
                     <configuration>
                         <properties>
-                            <!-- uncomment if you want to manually run cargo on port 8080 using mvn cargo:run -->
+                            uncomment if you want to manually run cargo on port 8080 using mvn cargo:run
                             <cargo.servlet.port>8080</cargo.servlet.port>
-                            <!-- uncomment if you want to debug the locally running instance on port 8787 after using mvn cargo:run -->
+                            uncomment if you want to debug the locally running instance on port 8787 after using mvn cargo:run
                              <cargo.jvmargs>-Xdebug -Xnoagent -Xrunjdwp:transport=dt_socket,address=8787,server=y,suspend=n -Xms512m -Xmx1024m -XX:MaxPermSize=256m -XX:+UseParNewGC -XX:+UseConcMarkSweepGC</cargo.jvmargs>
-                            <!-- uncomment all ports when not running locally with mvn cargo:run -->
+                            uncomment all ports when not running locally with mvn cargo:run
                         </properties>
                     </configuration>
                     <deployables>
@@ -113,5 +113,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
