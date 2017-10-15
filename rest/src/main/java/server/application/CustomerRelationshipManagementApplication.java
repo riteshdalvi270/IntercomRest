@@ -1,5 +1,7 @@
 package server.application;
 
+import server.provider.CustomerRelationshipReaderProvider;
+import server.provider.CustomerRelationshipWriterProvider;
 import server.service.CustomerServiceResource;
 
 import javax.ws.rs.core.Application;
@@ -14,15 +16,17 @@ import java.util.Set;
  **/
 public class CustomerRelationshipManagementApplication extends Application {
 
-    private static final Set<Object> service = Sets.newHashSet();
-    private static final Set<Class<?>> emptyClassSet = Collections.emptySet();
+    private static final Set<Object> service = Collections.emptySet();
+    private static final Set<Class<?>> classSet = Sets.newHashSet();
 
     public CustomerRelationshipManagementApplication() {
-        service.add(new CustomerServiceResource());
+    	classSet.add(CustomerServiceResource.class);
+    	classSet.add(CustomerRelationshipReaderProvider.class);
+    	classSet.add(CustomerRelationshipWriterProvider.class);
     }
 
     public Set<Class<?>> getClasses() {
-        return emptyClassSet;
+        return classSet;
     }
 
     public Set<Object> getSingletons() {

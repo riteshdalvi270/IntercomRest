@@ -51,14 +51,6 @@ public class CustomerInformationWriter {
 			
 		}finally {
 			
-			if(fileReader!=null) {
-				try {
-					fileReader.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-			
 			if(bufferedReader!=null) {
 				try {
 					bufferedReader.close();
@@ -66,6 +58,15 @@ public class CustomerInformationWriter {
 					e.printStackTrace();
 				}
 			}
+			
+			if(fileReader!=null) {
+				try {
+					fileReader.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+
 		}
 		
 		final Gson gson = new Gson();
@@ -90,17 +91,17 @@ public class CustomerInformationWriter {
 			failedResponseImpl.setReasonForFailure("Error while writing the data");
 		}finally {
 			
-			if(fileWriter!=null) {
+			if(bufferedWriter!=null) {
 				try {
-					fileWriter.close();
+					bufferedWriter.close();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
 			
-			if(bufferedWriter!=null) {
+			if(fileWriter!=null) {
 				try {
-					bufferedWriter.close();
+					fileWriter.close();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

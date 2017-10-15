@@ -68,6 +68,7 @@
     				<artifactId>jersey-json</artifactId>
     				<version>1.17.1</version>
 			</dependency>
+			
 			<!-- https://mvnrepository.com/artifact/org.glassfish.jersey.core/jersey-client -->
 			<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
 			<dependency>
@@ -88,6 +89,13 @@
             <artifactId>httpclient</artifactId>
             <version>4.5.3</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.sun.jersey/jersey-server -->
+<dependency>
+    <groupId>com.sun.jersey</groupId>
+    <artifactId>jersey-server</artifactId>
+    <version>1.19.4</version>
+</dependency>
+        
 
 
         <dependency>

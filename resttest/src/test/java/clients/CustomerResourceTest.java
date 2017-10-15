@@ -45,45 +45,10 @@ public class CustomerResourceTest {
             e.printStackTrace();
         }
     }
-    
-//    @Test
-//    public void test_CreateCustomer() {
-//    	
-//    		ClientRequest request = new ClientRequest("http://localhost:8080/war/service/customers/customer/");
-//    		request.accept("application/json");
-//
-//    		final CustomerInformation customerInformation = new CustomerInformation();
-//            customerInformation.setName("Ridima");
-//            customerInformation.setUserId("1234");
-//            customerInformation.setLatitude("53.3381985");
-//            customerInformation.setLongitutde("-6.2592576");
-//            
-//            final Gson gson = new Gson();
-//            final String custInfo = gson.toJson(customerInformation);
-//            
-//    		request.body("application/json", custInfo);
-//
-//    		try {
-//				ClientResponse<String> response = request.post(String.class);
-//			} catch (Exception e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//    }
+
     
     @Test
     public void test_CreateCustomer() {
-    	
-//    		final Client newClient = ClientBuilder.newClient();
-//    		WebTarget webTarget = newClient.target("http://localhost:8080/war/service/customers");
-//    	    final CustomerInformation customerInformation = new CustomerInformation();
-//            customerInformation.setName("Ridima");
-//            customerInformation.setUserId("1234");
-//            customerInformation.setLatitude("53.3381985");
-//            customerInformation.setLongitutde("-6.2592576");
-//    		final Response response = webTarget.request(MediaType.APPLICATION_JSON).post(Entity.entity(customerInformation, MediaType.APPLICATION_JSON));
-    		
-    		//System.out.println(response.getStatus() + "," + response.getEntity().toString());
 
     		final CloseableHttpClient httpClient = HttpClients.createDefault();
     		
@@ -94,6 +59,15 @@ public class CustomerResourceTest {
     			final HttpResponse response = httpClient.execute(httpPost);
     			
             System.out.println(response.getStatusLine().getStatusCode() + response.getStatusLine().getReasonPhrase());
+            
+            final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
+            String readline = null;
+            
+            while((readline = bufferedReader.readLine())!=null) {
+            	
+            		System.out.println(readline.toString());
+            }
+
     			
     		}catch(final Exception e) {
     			e.printStackTrace();
@@ -101,7 +75,7 @@ public class CustomerResourceTest {
     }
     
     private HttpPost getHttpPostRequest() throws UnsupportedEncodingException {
-        final String uri = "http://localhost:8080/war/"+"service/customers/customer/";
+        final String uri = "http://localhost:8080/war/"+"service/customers";
         
         final HttpPost post = new HttpPost(uri);
         
@@ -128,13 +102,13 @@ public class CustomerResourceTest {
         System.out.println(uri);
 
         final HttpGet request = new HttpGet(uri);
-        //request.setHeader("Content-Type","application/xml");
+        request.setHeader("Content-Type","application/xml");
 
         return request;
     }
 
     private String getServiceURI() {
-        return UriBuilder.fromPath("service/customers/latitude/").path(String.valueOf(53.3381985)).path("/longitude/").path(String.valueOf(-6.2592576)).build().toString();
+        return UriBuilder.fromPath("service/customers/").path(String.valueOf(53.3381985)).path("-").path(String.valueOf(-6.2592576)).build().toString();
     }
 
 }
