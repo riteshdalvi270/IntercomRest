@@ -24,6 +24,10 @@
             <artifactId>jersey-client</artifactId>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+    				<groupId>com.sun.jersey</groupId>
+    				<artifactId>jersey-json</artifactId>
+		</dependency>
 
         <!-- https://mvnrepository.com/artifact/com.sun.jersey/jersey-core -->
         <dependency>

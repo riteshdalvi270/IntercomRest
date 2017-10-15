@@ -1,13 +1,19 @@
 package intercom.buildrelationship.server.customer.relationshipmanagement.organizer;
 
+import intercom.buildrelationship.object.criteria.offices.CustomerInformation;
 import intercom.buildrelationship.object.criteria.offices.Offices;
 import intercom.buildrelationship.object.response.CustomerResponse;
+import intercom.buildrelationship.object.response.FailedResponse;
+import intercom.buildrelationship.object.response.Response;
 import intercom.buildrelationship.server.customer.relationshipmanagement.customerdata.read.CustomerInformationRetriever;
 import intercom.buildrelationship.server.customer.relationshipmanagement.customerdata.read.impl.CustomerInformationRetrieverImpl;
+import intercom.buildrelationship.server.customer.relationshipmanagement.customerdata.write.CustomerInformationWriter;
 
 import java.awt.Point;
 import java.io.File;
 import java.util.List;
+
+import com.google.gson.Gson;
 
 /**
  * We want to invite any customer within 100km of our Dublin office (GPS coordinates 53.3381985, -6.2592576) for some food and drinks on us.
@@ -58,4 +64,11 @@ public class CustomerRelationshipManagement {
 
         return customerResponses;
     }
+    
+    public Response writeCustomers(final CustomerInformation customerInformation) {
+        		
+    		final CustomerInformationWriter customerInformationWriter = new CustomerInformationWriter();
+    		return customerInformationWriter.writeCustomerData(customerInformation);
+    }
+    
 }

@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  * @author Ritesh Dalvi
  **/
-@XmlRootElement
+//@XmlRootElement
 public class CustomerResponse {
 
 	private String customerName;

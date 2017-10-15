@@ -1,7 +1,9 @@
 package server.service;
 
+import intercom.buildrelationship.object.criteria.offices.CustomerInformation;
 import intercom.buildrelationship.object.criteria.offices.Offices;
 import intercom.buildrelationship.object.response.CustomerResponse;
+import intercom.buildrelationship.object.response.Response;
 
 import java.util.List;
 
@@ -24,5 +26,13 @@ public class CustomerRelationshipManagement {
                 intercom.buildrelationship.server.customer.relationshipmanagement.organizer.CustomerRelationshipManagement.create();
 
         return customerRelationshipManagement.getCustomers(offices);
+    }
+    
+    public Response createCustomers(final CustomerInformation customerInformation) {
+    		
+    		final intercom.buildrelationship.server.customer.relationshipmanagement.organizer.CustomerRelationshipManagement customerRelationshipManagement =
+                intercom.buildrelationship.server.customer.relationshipmanagement.organizer.CustomerRelationshipManagement.create();
+    		
+    		return customerRelationshipManagement.writeCustomers(customerInformation);
     }
 }
