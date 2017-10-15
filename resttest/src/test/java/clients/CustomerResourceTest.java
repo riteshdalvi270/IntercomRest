@@ -17,11 +17,12 @@ import java.io.UnsupportedEncodingException;
 import javax.ws.rs.core.UriBuilder;
 
 /**
+ * Junit test to call {@link CustomerResource}. Apache http client implemented to server the purpose.
  * @author Ritesh Dalvi
  **/
 public class CustomerResourceTest {
 
-    //@Test
+    @Test
     public void test_GetCustomerResource() {
 
         final CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -102,13 +103,12 @@ public class CustomerResourceTest {
         System.out.println(uri);
 
         final HttpGet request = new HttpGet(uri);
-        request.setHeader("Content-Type","application/xml");
-
+        
         return request;
     }
 
     private String getServiceURI() {
-        return UriBuilder.fromPath("service/customers/").path(String.valueOf(53.3381985)).path("-").path(String.valueOf(-6.2592576)).build().toString();
+        return UriBuilder.fromPath("service/customers/").path(String.valueOf(53.3381985)+"-"+String.valueOf(-6.2592576)).build().toString();
     }
 
 }
