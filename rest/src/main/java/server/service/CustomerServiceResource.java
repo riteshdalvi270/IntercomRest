@@ -84,8 +84,8 @@ public class CustomerServiceResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response updateCustomer(@PathParam("userId")final String userId, final CustomerInformation customerInformation) {
-    	
-    		return null;
+
+        final CustomerRelationshipManagement customerRelationshipManagement = CustomerRelationshipManagement.create();
     }
 
     private List<server.service.object.CustomerResponse> createResponse(final List<CustomerResponse> customerResponses) {
