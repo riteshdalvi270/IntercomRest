@@ -86,6 +86,8 @@ public class CustomerServiceResource {
     public Response updateCustomer(@PathParam("userId")final String userId, final CustomerInformation customerInformation) {
 
         final CustomerRelationshipManagement customerRelationshipManagement = CustomerRelationshipManagement.create();
+
+        return null;
     }
 
     private List<server.service.object.CustomerResponse> createResponse(final List<CustomerResponse> customerResponses) {

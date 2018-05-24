@@ -21,14 +21,12 @@ public class CustomerRelationshipWriterProvider implements MessageBodyWriter<int
 
 	@Override
 	public boolean isWriteable(Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
-		// TODO Auto-generated method stub
 		return intercom.buildrelationship.object.response.Response.class.equals(type);
 	}
 
 	@Override
 	public long getSize(intercom.buildrelationship.object.response.Response t, Class<?> type, Type genericType,
 			Annotation[] annotations, MediaType mediaType) {
-		// TODO Auto-generated method stub
 		return -1;
 	}
 

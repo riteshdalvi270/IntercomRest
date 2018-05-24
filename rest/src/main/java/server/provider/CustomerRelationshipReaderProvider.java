@@ -22,7 +22,6 @@ public class CustomerRelationshipReaderProvider implements MessageBodyReader<Cus
 
 	@Override
 	public boolean isReadable(Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
-		// TODO Auto-generated method stub
 		return CustomerInformation.class.equals(type);
 	}
 
